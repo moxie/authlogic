@@ -70,7 +70,7 @@ module Authlogic
         # Save the record and skip session maintenance all together.
         def save_without_session_maintenance(*args)
           self.skip_session_maintenance = true
-          result = save(*args)
+          result = save(:validate => args.first)
           self.skip_session_maintenance = false
           result
         end
